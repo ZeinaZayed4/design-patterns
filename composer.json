@@ -1,0 +1,17 @@
+{
+  "name": "zeina/design-patterns",
+  "description": "This package holds the content of the course including source code, references, and more..",
+  "minimum-stability": "stable",
+  "license": "proprietary",
+  "authors": [
+    {
+      "name": "zeina",
+      "email": "email@example.com"
+    }
+  ],
+  "autoload": {
+    "psr-4": {
+      "App\\": "src/"
+    }
+  }
+}

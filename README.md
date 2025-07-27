@@ -15,4 +15,7 @@
     | is about hiding unwanted details while showing most essential information. | means binding the code and data into a single unit.                                                  |
     | allows focusing on what the information object must contain.               | means hiding the internal details or mechanics of how an object does something for security reasons. |
 3. **Inheritance**
+   - is the concept in which one object acquires/inherits all the properties and behaviors of a parent object.
+   - Code to an abstraction/interface rather than a concrete class (avoid loosely coupled classes).
+   - Favor composition over inheritance.
 4. **Polymorphism**

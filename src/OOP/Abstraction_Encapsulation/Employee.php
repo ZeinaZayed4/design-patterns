@@ -1,6 +1,6 @@
 <?php
 
-namespace App\OOP;
+namespace App\OOP\Abstraction_Encapsulation;
 
 class Employee
 {

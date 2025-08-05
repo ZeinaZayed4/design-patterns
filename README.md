@@ -19,3 +19,11 @@
    - Code to an abstraction/interface rather than a concrete class (avoid loosely coupled classes).
    - Favor composition over inheritance.
 4. **Polymorphism**
+   - is the concept by which we can perform a single action in different ways.
+   - is derived from 2 Greek words:
+     - **poly** means many,
+     - and **morphs** means forms.
+   - so, polymorphism means many forms.
+   - has 2 types:
+     - static.
+     - dynamic.

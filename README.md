@@ -27,3 +27,7 @@
    - has 2 types:
      - static.
      - dynamic.
+
+## OOP Relationships
+1. Association
+   - defines a relationship between classes of objects that allows one object instance to cause another to perform an action on its behalf.

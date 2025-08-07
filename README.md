@@ -31,3 +31,19 @@
 ## OOP Relationships
 1. Association
    - defines a relationship between classes of objects that allows one object instance to cause another to perform an action on its behalf.
+2. Aggregation
+   - is a weak type of association that represents the relationship between an owner (whole) object and its aggregated (parts) collection of objects in a way that doesn't affect the life cycle of the parts objects if the owner is destroyed.
+3. Composition
+   - is a strong type of association, and it's also called **death** relationship.
+   - represents an owner object that own another object as part of it.
+   - This type of relationship controls the life cycle of the owned object in a way that if the owner is destroyed then the owned object is destroyed too.
+
+- ![Relationships](relationships.jpg)
+
+- Inheritance IS-A
+  - Manager IS-A Employee
+- Aggregation HAS-A
+  - Project HAS-A Developer
+- Composition PART-OF
+  - Room PART-OF House
+  - CPU PART-OF ComputerMachine

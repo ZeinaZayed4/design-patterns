@@ -1,27 +1,46 @@
 <?php
 
-use App\OOP\Relationship\Association\MathTeacher;
-use App\OOP\Relationship\Association\Printer\HTMLPrinter;
-use App\OOP\Relationship\Association\Student;
-use App\OOP\Relationship\Association\ScienceTeacher;
+use App\OOP\Relationship\Aggregation\Project;
+use App\OOP\Relationship\Aggregation\Developer;
+use App\OOP\Relationship\Composition\House;
+use App\OOP\Relationship\Composition\Room;
+use App\OOP\Relationship\Composition\CPU;
+use App\OOP\Relationship\Composition\RAM;
+use App\OOP\Relationship\Composition\ComputerMachine;
 
 require_once __DIR__ . '/../vendor/autoload.php';
 
-$zeina = new MathTeacher('Zeina Zayed');
-$ohoud = new ScienceTeacher('Ohoud Zayed');
-$printer = new HTMLPrinter();
+// Aggregation example
+$zeina = new Developer('Zeina');
+$hana = new Developer('Hana');
+$adam = new Developer('Adam');
 
-echo $zeina->sayWelcome($printer);
-//unset($zeina);
+$xProject = new Project(
+    'X Project',
+    new DateTime('now'),
+    [$zeina, $hana, $adam]
+);
 
-// printer still works even the teacher object was deleted
-$printer->setStringToBePrinted("This is a test string");
-echo $printer->printToScreen();
+$xProject->setDeadlineTo(new DateInterval('P1M'));
 
-$hana = new Student('Hana Atef');
+echo $xProject->showProjectInformation();
 
-$hana->assignATempTeacher($zeina);
-echo $hana->getName() . ' was assigned to this by ' . $zeina->getName() . ' | ' . $zeina->evaluateStudentHomework($hana) . '<br />';
+unset($xProject);
 
-$hana->assignATempTeacher($zeina);
-echo $hana->getName() . ' was assigned to this by ' . $ohoud->getName() . ' | ' . $ohoud->evaluateStudentHomework($hana) . '<br />';
+// developers still exist
+echo $zeina->getName();
+
+echo '<hr />';
+
+// Composition example
+$room1 = new Room('White', 20);
+$room2 = new Room('Pink', 30);
+$room3 = new Room('Blue', 25);
+
+$house = new House([$room1, $room2, $room3]);
+
+$cpu = new CPU(3.6);
+$ram = new RAM(16);
+$pc = new ComputerMachine($cpu, $ram);
+
+echo $pc->dashboard();

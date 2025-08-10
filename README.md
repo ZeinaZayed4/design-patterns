@@ -47,3 +47,16 @@
 - Composition PART-OF
   - Room PART-OF House
   - CPU PART-OF ComputerMachine
+
+## Design Patterns: Creational Design Patterns
+- In software engineering, creational design patterns are patterns that deal with object creation mechanisms, trying to create objects in a manner suitable to the situation.
+- Creational design patterns are composed of two dominant ideas.
+  - One is encapsulating knowledge about which concrete classes the system uses.
+  - Another is hiding how instances of these concrete classes are created and combined.
+
+### Factory Method Design Pattern
+- **Intention:** 
+  - Define an interface for creating an object, but let subclasses decide which class to instantiate.
+  - Factory Method lets a class defer instantiation to subclasses.
+- **Also known as:** Virtual Constructor.
+- **Example:** Dialog, Content validator.

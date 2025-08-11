@@ -60,3 +60,8 @@
   - Factory Method lets a class defer instantiation to subclasses.
 - **Also known as:** Virtual Constructor.
 - **Example:** Dialog, Content validator.
+
+### Builder Design Pattern
+- **Intention:**
+  - Separate the construction of a complex object from its representation so that the same construction process can create different representation.
+- **Example:** Computer, Response Interface (real world scenario).

@@ -65,3 +65,8 @@
 - **Intention:**
   - Separate the construction of a complex object from its representation so that the same construction process can create different representation.
 - **Example:** Computer, Response Interface (real world scenario).
+
+### Prototype Design Pattern
+- **Intention:**
+  - Specify the kinds of objects to create using a prototypical instance, and create new objects by copying this prototype.
+- **Example:** EmployeePrototype (real world scenario)

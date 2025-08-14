@@ -70,3 +70,8 @@
 - **Intention:**
   - Specify the kinds of objects to create using a prototypical instance, and create new objects by copying this prototype.
 - **Example:** EmployeePrototype (real world scenario)
+
+### Abstract Factory Design Pattern
+- **Intention:**
+  - Provide an interface for creating families of related or dependent objects without specifying their concrete classes.
+- **Example:** Form Abstract Factory

@@ -1,15 +1,15 @@
 <?php
 
-use App\Patterns\Creational\AbstractFactory\FormAbstractFactory\GUIClient;
-use App\Patterns\Creational\AbstractFactory\FormAbstractFactory\MobileForm\MobileFormFactory;
-use App\Patterns\Creational\AbstractFactory\FormAbstractFactory\WebForm\WebFormFactory;
+use App\Patterns\Creational\Singleton\AppSettings;
 
 require_once __DIR__ . '/../vendor/autoload.php';
 
-$client = new GUIClient(new WebFormFactory());
-echo $client->createForm();
+$settings = AppSettings::getInstance();
 
-echo '<hr />';
+$settings2 = AppSettings::getInstance();
 
-$client->setFactory(new MobileFormFactory());
-echo $client->createForm();
+echo '<pre>';
+var_dump($settings::getConfig('Database')['portNumber']);
+var_dump($settings2::getConfig('Cache')['portNumber']);
+var_dump($settings, $settings2);
+echo '</pre>';

@@ -75,3 +75,8 @@
 - **Intention:**
   - Provide an interface for creating families of related or dependent objects without specifying their concrete classes.
 - **Example:** Form Abstract Factory
+
+### Singleton Design Pattern
+- **Intention:**
+  - Ensure a class only has one instance, and provides a global point of access to it.
+- **Example:** App Settings.

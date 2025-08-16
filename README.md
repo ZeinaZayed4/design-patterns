@@ -80,3 +80,23 @@
 - **Intention:**
   - Ensure a class only has one instance, and provides a global point of access to it.
 - **Example:** App Settings.
+
+## Design Patterns: Structural Design Patterns
+- Structural patterns are concerned with how classes and objects are composed to form larger structures.
+- Structural class patterns use inheritance to compose interfaces or implementations.
+- As a simple example:
+  - consider how multiple inheritance mixes two or more classes into one.
+  - This result a class that combines the properties of its parent classes.
+- This pattern is particularly useful for making independently developed class libraries work together.
+- Another example:
+  - is the class form of the Adapter pattern.
+  - In general, an adaptor makes one interface (the adaptee's) conform to another, thereby providing a uniform abstraction of different interfaces.
+  - A class adapter accomplishes this by inheriting privately from an adaptee class.
+  - The adapter class expresses its interface in terms of the adaptee's.
+
+### Adapter Design Pattern
+- **Intention:**
+  - Convert the interface of a class into another interface clients expect.
+  - Adapter lets classes work together that couldn't otherwise because of incompatible interfaces.
+- **Also known as:** Wrapper.
+- **Examples:** SMS Clients, Database Adapter.

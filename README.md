@@ -100,3 +100,9 @@
   - Adapter lets classes work together that couldn't otherwise because of incompatible interfaces.
 - **Also known as:** Wrapper.
 - **Examples:** SMS Clients, Database Adapter.
+
+### Bridge Design Pattern
+- **Intention:**
+  - Decouple an abstraction from its implementation so that the two can vary independently.
+- **Also known as:** Handle/Body.
+- **Examples:** Report.

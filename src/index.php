@@ -1,34 +1,47 @@
 <?php
 
-use App\Patterns\Structural\Adapter\SMSAdapter\Adapters\ABCSMSClientAdapter;
-use App\Patterns\Structural\Adapter\SMSAdapter\Messages\SMSMessage;
-use App\Patterns\Structural\Adapter\SMSAdapter\MonkeySMSClient;
+use App\Patterns\Structural\Bridge\Grades\Grade1Report;
+use App\Patterns\Structural\Bridge\Grades\Grade2Report;
+use App\Patterns\Structural\Bridge\Grades\Grade3Report;
+use App\Patterns\Structural\Bridge\Reports\HTMLReport;
+use App\Patterns\Structural\Bridge\Reports\PlainTextReport;
+use App\Patterns\Structural\Bridge\Reports\XMLReport;
 
 require_once __DIR__ . '/../vendor/autoload.php';
 
-$message1 = new SMSMessage('Welcome to our club', '0123456789');
-$message2 = new SMSMessage('Please, join our community', '0123456');
-$message3 = new SMSMessage('Your account has been activated', '0123452222');
-$message4 = new SMSMessage('Thank you for your feedback', '0123424');
+$report1Tool = new Grade1Report(
+    new HTMLReport(),
+);
+echo $report1Tool->showReport();
 
-$client = new MonkeySMSClient([
-    $message1, $message2, $message3
-]);
+$report1Tool->setReport(new XMLReport());
+echo $report1Tool->showReport();
 
-$client->addMessage($message4);
-$client->filterNumbers();
-$client->send();
-
-var_dump($client->getDeliveryStatus());
+$report1Tool->setReport(new PlainTextReport());
+echo $report1Tool->showReport();
 
 echo '<hr />';
 
-$client2 = new ABCSMSClientAdapter([
-    $message1, $message2, $message3
-]);
+$report2Tool = new Grade2Report(
+    new HTMLReport(),
+);
+echo $report2Tool->showReport();
 
-$client2->addMessage($message4);
-$client2->filterNumbers();
-$client2->send();
+$report2Tool->setReport(new XMLReport());
+echo $report2Tool->showReport();
 
-var_dump($client2->getDeliveryStatus());
+$report2Tool->setReport(new PlainTextReport());
+echo $report2Tool->showReport();
+
+echo '<hr />';
+
+$report3Tool = new Grade3Report(
+    new HTMLReport(),
+);
+echo $report3Tool->showReport();
+
+$report3Tool->setReport(new XMLReport());
+echo $report3Tool->showReport();
+
+$report3Tool->setReport(new PlainTextReport());
+echo $report3Tool->showReport();

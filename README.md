@@ -106,3 +106,9 @@
   - Decouple an abstraction from its implementation so that the two can vary independently.
 - **Also known as:** Handle/Body.
 - **Examples:** Report.
+
+### Facade Design Pattern
+- **Intention:**
+  - Provide a unified interface to a set od interfaces in a subsystem.
+  - Facade defines a higher level interface that makes the subsystem easier to use.
+- **Examples:** File Converter.

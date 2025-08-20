@@ -112,3 +112,10 @@
   - Provide a unified interface to a set od interfaces in a subsystem.
   - Facade defines a higher level interface that makes the subsystem easier to use.
 - **Examples:** File Converter.
+
+### Decorator Design Pattern
+- **Intention:**
+  - Attach additional responsibilities to an object dynamically.
+  - Decorators provide a flexible alternative to sub classing for extending functionality.
+- **Also known as:** Wrapper.
+- **Examples:** Notifier.

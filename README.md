@@ -119,3 +119,19 @@
   - Decorators provide a flexible alternative to sub classing for extending functionality.
 - **Also known as:** Wrapper.
 - **Examples:** Notifier.
+
+### Proxy Design Pattern
+- **Intention:**
+  - Provide a surrogate or placeholder for another object to control access to it.
+- **Also known as:** Surrogate.
+- **Examples:** Router Interface.
+- **Types of proxies:**
+  - **Virtual proxy:**
+    - This is when you have a heavyweight service object that wastes system resources by being always up, even though you only need it from time to time.
+  - **Protection proxy:**
+    - This is when you want only specific clients to be able to use the service object; for instance, when your objects are crucial parts of an operating system and clients are various launched applications (including malicious ones).
+  - **Remote proxy:**
+      - This is when the service object is located on a remote server.
+      - In this case, the proxy passes the client request over the network, handling all the nasty details of working with the network.
+  - **Smart reference:**
+    - This is when you need to be able to dismiss a heavyweight object once there are no clients that use it.

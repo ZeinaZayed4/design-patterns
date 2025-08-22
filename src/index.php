@@ -1,22 +1,22 @@
 <?php
 
-use App\Patterns\Structural\Decorator\Decorators\SMSNotifierDecorator;
-use App\Patterns\Structural\Decorator\Decorators\WhatsAppNotifierDecorator;
-use App\Patterns\Structural\Decorator\EmailNotifier;
+
+use App\Patterns\Structural\Proxy\RouterInterface\Clients\Application1;
+use App\Patterns\Structural\Proxy\RouterInterface\Clients\Application2;
+use App\Patterns\Structural\Proxy\RouterInterface\RouterFactory;
+use App\Patterns\Structural\Proxy\RouterInterface\RouterProxy;
 
 require_once __DIR__ . '/../vendor/autoload.php';
 
-$smsNotificationEnabled = true;
-$whatsAppNotificationEnabled = true;
+$app1 = new Application1(new DateTime('now'));
+$app2 = new Application2();
 
-$notifier = new EmailNotifier('zeina@example.com');
+$router = new RouterProxy(
+    RouterFactory::createRouter(),
+    $app1,
+    ['APP_1', 'APP_3', 'APP_4']
+);
 
-if ($smsNotificationEnabled) {
-    $notifier = new SMSNotifierDecorator($notifier, '01234567891');
+if ($router->resolve('https://www.google.com')) {
+    $router->stream();
 }
-
-if ($whatsAppNotificationEnabled) {
-    $notifier = new WhatsAppNotifierDecorator($notifier, '01234567891');
-}
-
-$notifier->notify();

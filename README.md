@@ -40,11 +40,11 @@
 
 - ![Relationships](relationships.jpg)
 
-- Inheritance IS-A
+- Inheritance **"IS-A"**
   - Manager IS-A Employee
-- Aggregation HAS-A
+- Aggregation **"HAS-A"**
   - Project HAS-A Developer
-- Composition PART-OF
+- Composition **"PART-OF"**
   - Room PART-OF House
   - CPU PART-OF ComputerMachine
 
@@ -105,20 +105,20 @@
 - **Intention:**
   - Decouple an abstraction from its implementation so that the two can vary independently.
 - **Also known as:** Handle/Body.
-- **Examples:** Report.
+- **Example:** Report.
 
 ### Facade Design Pattern
 - **Intention:**
   - Provide a unified interface to a set od interfaces in a subsystem.
   - Facade defines a higher level interface that makes the subsystem easier to use.
-- **Examples:** File Converter.
+- **Example:** File Converter.
 
 ### Decorator Design Pattern
 - **Intention:**
   - Attach additional responsibilities to an object dynamically.
   - Decorators provide a flexible alternative to sub classing for extending functionality.
 - **Also known as:** Wrapper.
-- **Examples:** Notifier.
+- **Example:** Notifier.
 
 ### Proxy Design Pattern
 - **Intention:**
@@ -135,3 +135,9 @@
       - In this case, the proxy passes the client request over the network, handling all the nasty details of working with the network.
   - **Smart reference:**
     - This is when you need to be able to dismiss a heavyweight object once there are no clients that use it.
+
+### Composite Design Pattern
+- **Intention:**
+  - Compose objects into tree structures to represent part-whole hierarchies.
+  - Composite lets clients treat individual objects and compositions of objects uniformly.
+- **Example:** Composable DTOs.

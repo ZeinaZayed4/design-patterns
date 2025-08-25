@@ -1,24 +1,98 @@
 <?php
 
-use App\Patterns\Structural\Composite\DTOs\DataModelsDTO\AddressDTO;
-use App\Patterns\Structural\Composite\DTOs\DataModelsDTO\OrderDTO;
-use App\Patterns\Structural\Composite\DTOs\DataModelsDTO\OrderOwnerDTO;
-use App\Patterns\Structural\Composite\DTOs\DataModelsDTO\PurchaseBill;
+use App\Patterns\Structural\Flyweight\GameBoard\GameBoard;
+use App\Patterns\Structural\Flyweight\GameBoard\GameTileBorder;
+use App\Patterns\Structural\Flyweight\GameBoard\GameTileColor;
+use App\Patterns\Structural\Flyweight\GameBoard\GameTileFactory;
+use App\Patterns\Structural\Flyweight\GameBoard\GameTileLevel;
 
 require_once __DIR__ . '/../vendor/autoload.php';
 
-$address1 = new AddressDTO('Al Ahram Street', '12A', '1234');
-$address2 = new AddressDTO('Cairo Street', '24A', '5678');
-$address3 = new AddressDTO('Mansoura Street', '36A', '2468');
+$board = new GameBoard();
+$borderTile1 = new GameTileBorder(
+    'dashed',
+    'thick',
+    GameTileColor::TILE_COLOR_GREEN,
+    '100x100',
+    GameTileLevel::TILE_LEVEL_BEGINNER
+);
+$borderTile2 = new GameTileBorder(
+    'dashed',
+    'thick',
+    GameTileColor::TILE_COLOR_GREEN,
+    '100x100',
+    GameTileLevel::TILE_LEVEL_BEGINNER
+);
+$borderTile3 = new GameTileBorder(
+    'dashed',
+    'thick',
+    GameTileColor::TILE_COLOR_GRAY,
+    '150x150',
+    GameTileLevel::TILE_LEVEL_INTERMEDIATE
+);
+$borderTile4 = new GameTileBorder(
+    'dashed',
+    'thick',
+    GameTileColor::TILE_COLOR_GRAY,
+    '150x150',
+    GameTileLevel::TILE_LEVEL_INTERMEDIATE
+);
+$borderTile5 = new GameTileBorder(
+    'dashed',
+    'thick',
+    GameTileColor::TILE_COLOR_BLUE,
+    '200x200',
+    GameTileLevel::TILE_LEVEL_ADVANCED
+);
+$borderTile6 = new GameTileBorder(
+    'dashed',
+    'thick',
+    GameTileColor::TILE_COLOR_BROWN,
+    '150x150',
+    GameTileLevel::TILE_LEVEL_BEGINNER
+);
+$borderTile7 = new GameTileBorder(
+    'dashed',
+    'thick',
+    GameTileColor::TILE_COLOR_WHITE,
+    '300x300',
+    GameTileLevel::TILE_LEVEL_INTERMEDIATE
+);
+$borderTile8 = new GameTileBorder(
+    'dashed',
+    'thick',
+    GameTileColor::TILE_COLOR_WHITE,
+    '300x300',
+    GameTileLevel::TILE_LEVEL_INTERMEDIATE
+);
+$borderTile9 = new GameTileBorder(
+    'dashed',
+    'thick',
+    GameTileColor::TILE_COLOR_RED,
+    '300x300',
+    GameTileLevel::TILE_LEVEL_ADVANCED
+);
+$borderTile10 = new GameTileBorder(
+    'dashed',
+    'thick',
+    GameTileColor::TILE_COLOR_RED,
+    '300x300',
+    GameTileLevel::TILE_LEVEL_ADVANCED
+);
 
-$zeina = new OrderOwnerDTO('Zeina Zayed', $address1);
-$hana = new OrderOwnerDTO('Hana Atef', $address2);
-$adam = new OrderOwnerDTO('Adam Ismail', $address3);
+$board->addTile($borderTile1);
+$board->addTile($borderTile2);
+$board->addTile($borderTile3);
+$board->addTile($borderTile4);
+$board->addTile($borderTile5);
+$board->addTile($borderTile6);
+$board->addTile($borderTile7);
+$board->addTile($borderTile8);
+$board->addTile($borderTile9);
+$board->addTile($borderTile10);
 
-$order1 = new OrderDTO($zeina, new DateTime('now'), 1200.12, 6);
-$order2 = new OrderDTO($hana, new DateTime('now'), 2400.24, 4);
-$order3 = new OrderDTO($adam, new DateTime('now'), 3600.36, 2);
+echo $board;
 
-$bill = new PurchaseBill([$order1, $order2, $order3]);
-
-echo $bill;
+echo '<pre>';
+GameTileFactory::getTiles();
+echo '</pre>';

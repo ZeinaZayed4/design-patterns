@@ -141,3 +141,8 @@
   - Compose objects into tree structures to represent part-whole hierarchies.
   - Composite lets clients treat individual objects and compositions of objects uniformly.
 - **Example:** Composable DTOs.
+
+### Flyweight Design Pattern
+- **Intention:**
+  - Use sharing to support large numbers of fine-grained objects efficiently.
+- **Example:** Game Tiles.

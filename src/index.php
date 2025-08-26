@@ -1,98 +1,30 @@
 <?php
 
-use App\Patterns\Structural\Flyweight\GameBoard\GameBoard;
-use App\Patterns\Structural\Flyweight\GameBoard\GameTileBorder;
-use App\Patterns\Structural\Flyweight\GameBoard\GameTileColor;
-use App\Patterns\Structural\Flyweight\GameBoard\GameTileFactory;
-use App\Patterns\Structural\Flyweight\GameBoard\GameTileLevel;
+use App\Patterns\Behavioral\ChainResponsibility\Order\Exceptions\NoLoyalUserException;
+use App\Patterns\Behavioral\ChainResponsibility\Order\Exceptions\NoProductAvailableException;
+use App\Patterns\Behavioral\ChainResponsibility\Order\Exceptions\NoShipmentAvailableException;
+use App\Patterns\Behavioral\ChainResponsibility\Order\Handlers\LoyaltyHandler;
+use App\Patterns\Behavioral\ChainResponsibility\Order\Handlers\OrderHandler;
+use App\Patterns\Behavioral\ChainResponsibility\Order\Handlers\ProductAvailabilityHandler;
+use App\Patterns\Behavioral\ChainResponsibility\Order\Handlers\ShipmentHandler;
+use App\Patterns\Behavioral\ChainResponsibility\Order\Order;
+use App\Patterns\Behavioral\ChainResponsibility\Order\Product;
+use App\Patterns\Behavioral\ChainResponsibility\Order\User;
 
 require_once __DIR__ . '/../vendor/autoload.php';
 
-$board = new GameBoard();
-$borderTile1 = new GameTileBorder(
-    'dashed',
-    'thick',
-    GameTileColor::TILE_COLOR_GREEN,
-    '100x100',
-    GameTileLevel::TILE_LEVEL_BEGINNER
-);
-$borderTile2 = new GameTileBorder(
-    'dashed',
-    'thick',
-    GameTileColor::TILE_COLOR_GREEN,
-    '100x100',
-    GameTileLevel::TILE_LEVEL_BEGINNER
-);
-$borderTile3 = new GameTileBorder(
-    'dashed',
-    'thick',
-    GameTileColor::TILE_COLOR_GRAY,
-    '150x150',
-    GameTileLevel::TILE_LEVEL_INTERMEDIATE
-);
-$borderTile4 = new GameTileBorder(
-    'dashed',
-    'thick',
-    GameTileColor::TILE_COLOR_GRAY,
-    '150x150',
-    GameTileLevel::TILE_LEVEL_INTERMEDIATE
-);
-$borderTile5 = new GameTileBorder(
-    'dashed',
-    'thick',
-    GameTileColor::TILE_COLOR_BLUE,
-    '200x200',
-    GameTileLevel::TILE_LEVEL_ADVANCED
-);
-$borderTile6 = new GameTileBorder(
-    'dashed',
-    'thick',
-    GameTileColor::TILE_COLOR_BROWN,
-    '150x150',
-    GameTileLevel::TILE_LEVEL_BEGINNER
-);
-$borderTile7 = new GameTileBorder(
-    'dashed',
-    'thick',
-    GameTileColor::TILE_COLOR_WHITE,
-    '300x300',
-    GameTileLevel::TILE_LEVEL_INTERMEDIATE
-);
-$borderTile8 = new GameTileBorder(
-    'dashed',
-    'thick',
-    GameTileColor::TILE_COLOR_WHITE,
-    '300x300',
-    GameTileLevel::TILE_LEVEL_INTERMEDIATE
-);
-$borderTile9 = new GameTileBorder(
-    'dashed',
-    'thick',
-    GameTileColor::TILE_COLOR_RED,
-    '300x300',
-    GameTileLevel::TILE_LEVEL_ADVANCED
-);
-$borderTile10 = new GameTileBorder(
-    'dashed',
-    'thick',
-    GameTileColor::TILE_COLOR_RED,
-    '300x300',
-    GameTileLevel::TILE_LEVEL_ADVANCED
-);
+$user = new User('USR-100', 'Zeina Zayed');
+$product = new Product('PRO-1', 'Dell laptop');
+$order = new Order($user, $product, new DateTime('2025-08-17'));
 
-$board->addTile($borderTile1);
-$board->addTile($borderTile2);
-$board->addTile($borderTile3);
-$board->addTile($borderTile4);
-$board->addTile($borderTile5);
-$board->addTile($borderTile6);
-$board->addTile($borderTile7);
-$board->addTile($borderTile8);
-$board->addTile($borderTile9);
-$board->addTile($borderTile10);
+$loyaltyHandler = new LoyaltyHandler();
+$loyaltyHandler
+    ->setNextHandler(new ProductAvailabilityHandler())
+    ->setNextHandler(new ShipmentHandler())
+    ->setNextHandler(new OrderHandler());
 
-echo $board;
-
-echo '<pre>';
-GameTileFactory::getTiles();
-echo '</pre>';
+try {
+    $loyaltyHandler->handle($order);
+} catch (NoLoyalUserException|NoProductAvailableException|NoShipmentAvailableException $e) {
+    echo $e->getMessage();
+}

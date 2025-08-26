@@ -146,3 +146,14 @@
 - **Intention:**
   - Use sharing to support large numbers of fine-grained objects efficiently.
 - **Example:** Game Tiles.
+
+## Design Patterns: Behavioral Design Patterns
+- In software engineering, behavioral design patterns are design patterns that identify common communication patterns among objects and realize these patterns.
+- By doing so, these patterns increase flexibility in carrying out this communication.
+- Behavioral patterns are considered with algorithms and the assignment of responsibilities between objects.
+
+### Chain of Responsibility Design Pattern
+- **Intention:**
+  - Avoid coupling the sender of a request to its receiver by giving more than one object a chance to handle the request.
+  - Chain the receiving objects and pass the request along the chain until ann object handles it.
+- **Example:** Order.

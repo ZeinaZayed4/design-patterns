@@ -48,6 +48,34 @@
   - Room PART-OF House
   - CPU PART-OF ComputerMachine
 
+## What is a Design Pattern?
+- Definition:
+  - Design pattern is a general repeatable solution to a common problem in software design.
+  - It is a description of template for how to solve a problem that can be used in many different situations.
+- Problems examples:
+  - We want to create only one instance of a class.
+  - We want to create multiple instances of similar kind and want to achieve loose coupling.
+  - We want to abstract database actions from our logic.
+
+## Design Patters Benefits
+- Speed up thr development process by providing tested, proven development paradigms.
+- Making the overall system easier to understand and maintain.
+- Make communication between developers more efficient when discussing system design.
+
+## Design Patterns Categories
+1. Creational:
+   - All about class instantiation or object creation.
+2. Structural:
+   - About organizing different classes and objects to form larger structures and provide new functionality.
+3. Behavioral:
+   - About identifying common communication patterns between objects.
+
+## Design Principles vs. Design Patterns
+|            | Design Principles                                                     | Design Patterns                                        |
+|------------|-----------------------------------------------------------------------|--------------------------------------------------------|
+| Main Task  | Provide high-level guidelines to design better software applications. | Provide low-level solutions related to implementation. |
+| Examples   | SOLID, DRY, KISS,...                                                  | Factory, Repository, Adapter,...                       |
+
 ## Design Patterns: Creational Design Patterns
 - In software engineering, creational design patterns are patterns that deal with object creation mechanisms, trying to create objects in a manner suitable to the situation.
 - Creational design patterns are composed of two dominant ideas.
